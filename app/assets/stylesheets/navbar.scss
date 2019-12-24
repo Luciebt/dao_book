@@ -1,0 +1,18 @@
+.new-article, .navbar-header {
+  color: #015668;
+  a:hover {
+    background-color: #ffd369;
+  }
+}
+
+.navbar {
+  background-color: #fff1cf !important;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

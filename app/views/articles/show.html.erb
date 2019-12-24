@@ -1,0 +1,45 @@
+<h4>
+  <button type="button" class="button">
+    <%= link_to articles_path do %>Home<% end %>
+  </button>
+</h4>
+
+<% content_for(:title) do %>
+  Wikinimous - <%= @article.title %>
+<% end %>
+
+<article class="article-show">
+  <h1>
+    <%= @article.title %>
+  </h1>
+
+<div class="link-box">
+  <h4>
+    <button type="button" class="button">
+      <%= link_to edit_article_path(@article) do %>Edit<% end %>
+    </button>
+    <button type="button" class="button">
+      <%= link_to @article.url, target: :_blank do %>Link<% end %>
+    </button>
+    <button type="button" class="button">
+      <%= link_to article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } do %>Delete<% end %>
+    </button>
+  </h4>
+</div>
+
+<hr>
+
+<h4>Keywords</h4>
+
+
+<hr>
+  <%= @article.markdown_content %>
+</article>
+
+<hr>
+
+<h4>
+  <button type="button" class="button">
+      <%= link_to articles_path do %>Back<% end %>
+  </button>
+</h4>
