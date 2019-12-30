@@ -5,7 +5,7 @@
 </h4>
 
 <% content_for(:title) do %>
-  Wikinimous - <%= @article.title %>
+  DAO_BOOK - <%= @article.title %>
 <% end %>
 
 <article class="article-show">
@@ -29,8 +29,14 @@
 
 <hr>
 
-<h4>Keywords</h4>
+<div class="category-box">
+  <h4>Category: <% @article.categories.each do |category| %>
+    <%= category.name.capitalize %>
+    <% end %>
 
+
+  </h4>
+</div>
 
 <hr>
   <%= @article.markdown_content %>

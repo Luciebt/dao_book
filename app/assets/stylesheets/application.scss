@@ -4,6 +4,8 @@
 @import url(buttons.scss);
 @import url(articles.scss);
 @import url(navbar.scss);
+@import url(keywords.scss);
+@import url(categories.scss);
 
 a { color: inherit; }
 
@@ -23,9 +25,10 @@ article {
 
 p {
   line-height: 1.8;
+  opacity: .9;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.form-text, h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   font-family: 'Raleway', sans-serif;
   line-height: 1.3;

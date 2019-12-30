@@ -1,0 +1,7 @@
+<div class="container cat-box">
+  <% @categories.each do |category| %>
+    <article class="index-category">
+      <h4 class="title"><%= link_to category.name, category %></h4>
+    </article>
+  <% end %>
+</div>
