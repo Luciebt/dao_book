@@ -6,5 +6,5 @@ class Article < ActiveRecord::Base
     Kramdown::Document.new(content).to_html.html_safe
   end
 
-  CATEGORIES = ["Privacy", "Security", "Liability", "Laws"]
+  enum category: [:privacy, :security, :lLiability, :laws, :assets]
 end
