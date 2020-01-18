@@ -1,9 +1,8 @@
 .button {
   text-decoration: none !important;
   font-family: 'Raleway', sans-serif;
-  border-radius: 2px;
+  border-radius: 4px;
   font-size: bold;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
   font-size: 16px;
   padding: 8px;
   background-color: #FFFAEF;
@@ -14,7 +13,7 @@
   a:hover {
   color: #ffd369 !important;
   }
-  transition: 0.6s ease;
+  transition: 0.4s ease;
 }
 
 

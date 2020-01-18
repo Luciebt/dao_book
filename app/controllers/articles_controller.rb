@@ -2,7 +2,14 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+    if params[:query].present?
+      @articles = Article.where("title ILIKE ?", "%#{params[:query]}%")
+        .or(Article.where("content ILIKE ?", "%#{params[:query]}%"))
+    elsif params[:filter_by].present?
+      @articles = Article.where(category: params[:filter_by])
+    else
+      @articles = Article.all
+    end
   end
 
   def show
@@ -12,10 +19,13 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @category = Category.new
+    # @category = Category.new
+    @categories = Instrument.categories
   end
 
   def edit
+    @article = Article.find(params[:id])
+    @categories = Article.categories
   end
 
   def create
@@ -39,7 +49,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
+    article = Article.find(params[:id])
+    article.destroy
     redirect_to articles_url, notice: 'Article was successfully destroyed.'
   end
 
@@ -49,6 +60,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :content, :url, :category_id)
+      params.require(:article).permit(:title, :content, :url, :category)
     end
 end

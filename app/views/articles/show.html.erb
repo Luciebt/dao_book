@@ -30,12 +30,11 @@
 <hr>
 
 <div class="category-box">
-  <h4>Category: <% @article.categories.each do |category| %>
+  <h4>Category:</h4>
+  <h3><% @article.categories.each do |category| %>
     <%= category.name.capitalize %>
     <% end %>
-
-
-  </h4>
+  </h3>
 </div>
 
 <hr>
