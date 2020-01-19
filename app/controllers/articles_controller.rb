@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     # @category = Category.new
-    @category = Article.categories
+    @categories = Article.categories
   end
 
   def edit
@@ -29,8 +29,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @category = Category.find(params[:id])
-    @article.categories << @category
 
     if @article.save
       redirect_to @article, notice: 'Article was successfully created.'
