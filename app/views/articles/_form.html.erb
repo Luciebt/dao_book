@@ -1,7 +1,24 @@
-<%= bootstrap_form_for(@article, class: 'form') do |f| %>
-  <%= f.text_field :title %>
-  <%= f.select :categories, Article::CATEGORIES { class: "" } %>
-  <%= f.text_field :url %>
-  <%= f.text_area :content, data: { editor: 'markdown' }, rows: 10 %>
-  <%= f.submit 'Save Article', :class => 'button' %>
-<% end %>
+<div class="newer-container">
+    <%= simple_form_for @article do |f| %>
+    <%= f.error_notification %>
+
+    <h4><strong>
+    <%= f.input :category_id, collection: @category.keys %>
+    </strong></h4>
+
+    <h4><strong>
+    <%= f.input :title, placeholder: "Article title", :label_html => { :class => "label-css"} %>
+    </strong></h4>
+
+    <h4><strong>
+    <%= f.input :url, as: :url %>
+    </strong></h4>
+
+    <h4><strong>
+    <%= f.input :content, data: { editor: 'markdown' }, rows: 10 %>
+    </strong></h4>
+
+    <%= f.submit 'Save Article', class: "button" %>
+
+  <% end %>
+</div>

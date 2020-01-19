@@ -14,13 +14,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @categorie = Category.new
   end
 
   def new
     @article = Article.new
     # @category = Category.new
-    @categories = Article.categories
+    @category = Article.categories
   end
 
   def edit
