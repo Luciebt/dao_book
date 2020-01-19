@@ -31,7 +31,9 @@
 
 <div class="category-box">
   <h4>Category:</h4>
-  <h3><% @article.categories.each do |category| %>
+    <h6><%= @article.category.capitalize %></h6>
+
+  <h3><% @categories.each do |category| %>
     <%= category.name.capitalize %>
     <% end %>
   </h3>
